@@ -89,10 +89,10 @@ module Openapi
                  detail: "
 | Metrics / 度量指标 | Address / 地址 | Threshold / 阈值 | Weight / 权重 |
 |---------|------|------|------|
-| Org Code Core Promotion Count / 组织代码核心晋升数量 | /api/v3/developer_promotion/org_code_core_promotion_count | 10 count / 10 个 | 0.25 |
-| Org Issue Core Promotion Count / 组织Issue核心晋升数量 | /api/v3/developer_promotion/org_issue_core_promotion_count | 10 count / 10 个 | 0.25 |
-| Individual Code Core Promotion Count / 个人代码核心晋升数量 | /api/v3/developer_promotion/individual_code_core_promotion_count | 10 count / 10 个 | 0.25 |
-| Individual Issue Core Promotion Count / 个人Issue核心开发者晋升数量 | /api/v3/developer_promotion/individual_issue_core_promotion_count | 10 count / 10 个 | 0.25 |
+| Org Code Core Promotion Count / 组织代码核心晋升数量 | /api/v3/developer_promotion/org_code_core_promotion_count | 1 count / 1 个 | 0.25 |
+| Org Issue Core Promotion Count / 组织Issue核心晋升数量 | /api/v3/developer_promotion/org_issue_core_promotion_count | 1 count / 1 个 | 0.25 |
+| Individual Code Core Promotion Count / 个人代码核心晋升数量 | /api/v3/developer_promotion/individual_code_core_promotion_count | 1 count / 1 个 | 0.25 |
+| Individual Issue Core Promotion Count / 个人Issue核心开发者晋升数量 | /api/v3/developer_promotion/individual_issue_core_promotion_count | 1 count / 1 个 | 0.25 |
 ",
 
                  tags: [
