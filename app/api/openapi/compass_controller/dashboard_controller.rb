@@ -931,7 +931,7 @@ module Openapi
           # begin_date, end_date, interval = extract_date(params[:beginDate], params[:endDate])
           # validate_date!(current_user, label, level, begin_date, end_date)
 
-          indexer, repo_urls, origin = select_idx_repos_by_label_and_level(
+          indexer, repo_urls, origin = select_idx_repos_by_label_and_level( 
             label,
             level,
             GiteeContributorEnrich,
