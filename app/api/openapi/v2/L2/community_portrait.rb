@@ -257,7 +257,7 @@ module Openapi
             begin_date = params[:begin_date]
             end_date = params[:end_date]
             begin_date, end_date = extract_search_date(begin_date, end_date)
-            indexer, repo_urls = select_idx_repos_by_lablel_and_level(label, level, GiteeContributorEnrich, GithubContributorEnrich, GitcodeContributorEnrich)
+            indexer, repo_urls = select_idx_repos_by_label_and_level(label, level, GiteeContributorEnrich, GithubContributorEnrich, GitcodeContributorEnrich)
 
             count = indexer.count_contributor_by_repo_urls(repo_urls, begin_date, end_date, contributor_type: ["code_author"])
 

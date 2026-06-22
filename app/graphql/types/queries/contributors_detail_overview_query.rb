@@ -21,7 +21,7 @@ module Types
         @begin_date, @end_date, interval = extract_date(begin_date, end_date)
 
         @indexer, @repo_urls, @origin =
-                              select_idx_repos_by_lablel_and_level(
+                              select_idx_repos_by_label_and_level(
                                 label,
                                 level,
                                 GiteeContributorEnrich,

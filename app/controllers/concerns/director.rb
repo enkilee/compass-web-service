@@ -4,7 +4,7 @@ module Director
   COMMUNITY_CACHE_KEY = 'compass-community-list'
   GOVERNANCE_TYPE = 'governance'
   ARTIFACT_TYPE = 'software-artifact'
-  UNKOWNN_TYPE = 'unknown'
+  UNKNOWN_TYPE = 'unknown'
 
   def director_repo_list(remote_url)
     begin
@@ -21,7 +21,7 @@ module Director
         end.flatten.uniq
       end
     rescue => ex
-      Rails.logger.error("failed to retrive repositories, error: #{ex.message}")
+      Rails.logger.error("failed to retrieve repositories, error: #{ex.message}")
       []
     end
   end
@@ -44,7 +44,7 @@ module Director
         end.flatten.uniq
       end
     rescue => ex
-      Rails.logger.error("failed to retrive repositories, error: #{ex.message}")
+      Rails.logger.error("failed to retrieve repositories, error: #{ex.message}")
       []
     end
   end
@@ -55,6 +55,6 @@ module Director
   def detect_type(type_str)
     return ARTIFACT_TYPE if type_str.include?(ARTIFACT_TYPE)
     return GOVERNANCE_TYPE if type_str.include?(GOVERNANCE_TYPE)
-    return UNKOWNN_TYPE
+    return UNKNOWN_TYPE
   end
 end

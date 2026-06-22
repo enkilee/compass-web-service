@@ -85,13 +85,13 @@ module CompassUtils
       project = ProjectTask.find_by(project_name: label)
       repo_list = director_repo_list(project&.remote_url)
     end
-    github_count, gitee_count, gticode_count = 0,0,0
+    github_count, gitee_count, gitcode_count = 0,0,0
     repo_list.each do |url|
       gitee_count += 1 if url =~ /gitee\.com/
       github_count += 1 if url =~ /github\.com/
-      gticode_count += 1 if url =~ /gitcode\.com/
+      gitcode_count += 1 if url =~ /gitcode\.com/
     end
-    counts = { 'github' => github_count, 'gitee' => gitee_count, 'gitcode' => gticode_count }
+    counts = { 'github' => github_count, 'gitee' => gitee_count, 'gitcode' => gitcode_count }
     max_pair = counts.max_by { |_, v| v }
     if max_pair[1] > 0 && counts.values.count(max_pair[1]) == 1
       max_pair[0]
@@ -100,7 +100,7 @@ module CompassUtils
     end
   end
 
-  def select_idx_repos_by_lablel_and_level(label, level, gitee_idx, github_idx, gitcode_idx = nil)
+  def select_idx_repos_by_label_and_level(label, level, gitee_idx, github_idx, gitcode_idx = nil)
     gitcode_idx ||= github_idx
     # 定义仓库主机与对应索引、来源的映射关系
     repo_host_mapping = {
@@ -136,7 +136,7 @@ module CompassUtils
   def is_repo_admin?(current_user, label, level)
     Rails.cache.fetch("is_repo_admin:user-#{current_user.id}:#{level}:#{label}", expires_in: 15.minutes) do
       indexer, repo_urls, origin =
-                          select_idx_repos_by_lablel_and_level(label, level, GiteeContributorEnrich, GithubContributorEnrich, GitcodeContributorEnrich)
+                          select_idx_repos_by_label_and_level(label, level, GiteeContributorEnrich, GithubContributorEnrich, GitcodeContributorEnrich)
       username = LoginBind.current_host_nickname(current_user, origin)
       indexer.repo_admin?(username, repo_urls)
     end
@@ -163,7 +163,7 @@ module CompassUtils
   def generate_interval_aggs(base_type, date_field, interval_str='1M', avg_type='Float', aliases={}, suffixs=[])
     metric_fields =
       base_type.fields.select{|k, v| v.type.name.end_with?(avg_type)}.keys.map(&:underscore)
-    aggregate_inteval = {
+    aggregate_interval = {
       aggsWithDate: {
         date_histogram: {
           field: date_field,

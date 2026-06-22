@@ -369,7 +369,7 @@ module Openapi
                       label = (level == 'repo') ? origin_url : get_community_name(origin_url)
 
                       # 选择 Indexer
-                      indexer, resolved_repo_urls, _origin = select_idx_repos_by_lablel_and_level(
+                      indexer, resolved_repo_urls, _origin = select_idx_repos_by_label_and_level(
                         label,
                         level,
                         GiteeContributorEnrich,
@@ -485,7 +485,7 @@ module Openapi
 #                   label = get_community_name(origin_url)
 #                 end
 #
-#                 indexer, target_repo_urls, _origin = select_idx_repos_by_lablel_and_level(
+#                 indexer, target_repo_urls, _origin = select_idx_repos_by_label_and_level(
 #                   label,
 #                   level,
 #                   GiteeContributorEnrich,
@@ -568,7 +568,7 @@ module Openapi
                   label = get_community_name(origin_url)
                 end
 
-                indexer, resolved_repo_urls, _origin = select_idx_repos_by_lablel_and_level(
+                indexer, resolved_repo_urls, _origin = select_idx_repos_by_label_and_level(
                   label,
                   level,
                   GiteeContributorEnrich,

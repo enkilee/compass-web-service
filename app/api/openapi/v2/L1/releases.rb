@@ -47,7 +47,7 @@ module Openapi
           status, message = Openapi::SharedParams::RepoChecker.check_repo!(label, level, current_user)
           return { message: message } unless status
 
-          indexer, repo_urls = select_idx_repos_by_lablel_and_level(label, level, GiteeReleasesEnrich, GithubReleasesEnrich, GitcodeReleasesEnrich)
+          indexer, repo_urls = select_idx_repos_by_label_and_level(label, level, GiteeReleasesEnrich, GithubReleasesEnrich, GitcodeReleasesEnrich)
 
           resp = indexer.terms_by_repo_urls_query(repo_urls, begin_date, end_date, per: size, page:, filter_opts:, sort_opts:)
 

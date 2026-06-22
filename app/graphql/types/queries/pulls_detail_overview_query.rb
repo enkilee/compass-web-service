@@ -23,7 +23,7 @@ module Types
         @end_date = @end_date.to_date.to_s
 
         indexers, @repo_urls =
-                  select_idx_repos_by_lablel_and_level(
+                  select_idx_repos_by_label_and_level(
                     label,
                     level,
                     [GiteePullEnrich, GiteeGitEnrich],

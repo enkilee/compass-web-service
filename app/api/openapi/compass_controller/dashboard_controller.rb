@@ -931,7 +931,7 @@ module Openapi
           # begin_date, end_date, interval = extract_date(params[:beginDate], params[:endDate])
           # validate_date!(current_user, label, level, begin_date, end_date)
 
-          indexer, repo_urls, origin = select_idx_repos_by_lablel_and_level(
+          indexer, repo_urls, origin = select_idx_repos_by_label_and_level(
             label,
             level,
             GiteeContributorEnrich,
@@ -989,7 +989,7 @@ module Openapi
           # validate_date!(current_user, label, level, begin_date, end_date)
 
           # 选择索引器
-          indexer, repo_urls, _origin = select_idx_repos_by_lablel_and_level(
+          indexer, repo_urls, _origin = select_idx_repos_by_label_and_level(
             label,
             level,
             GiteeContributorEnrich,
@@ -1095,7 +1095,7 @@ module Openapi
         #                 parsed_opts
         #               end
         #
-        #   indexer, repo_urls = select_idx_repos_by_lablel_and_level(
+        #   indexer, repo_urls = select_idx_repos_by_label_and_level(
         #     label,
         #     level,
         #     GiteeIssueEnrich,
@@ -1145,7 +1145,7 @@ module Openapi
         #   # 提取所有唯一的 user_login
         #   user_logins = hits.map { |hit| hit.dig('_source', 'user_login') }.compact.uniq
         #
-        #   contrib_indexer, repo_urls, origin = select_idx_repos_by_lablel_and_level(
+        #   contrib_indexer, repo_urls, origin = select_idx_repos_by_label_and_level(
         #     label,
         #     level,
         #     GiteeContributorEnrich,
@@ -1252,7 +1252,7 @@ module Openapi
                         parsed_opts
                       end
 
-          indexer, repo_urls = select_idx_repos_by_lablel_and_level(
+          indexer, repo_urls = select_idx_repos_by_label_and_level(
             label,
             level,
             GiteeIssueEnrich,
@@ -1271,7 +1271,7 @@ module Openapi
           target_user_logins = nil
 
           if target_orgs.present?
-            contrib_indexer, repo_urls, origin = select_idx_repos_by_lablel_and_level(
+            contrib_indexer, repo_urls, origin = select_idx_repos_by_label_and_level(
               label,
               level,
               GiteeContributorEnrich,
@@ -1370,7 +1370,7 @@ module Openapi
 
           contributors_info = {}
           if user_logins.any?
-            contrib_indexer, _, _ = select_idx_repos_by_lablel_and_level(
+            contrib_indexer, _, _ = select_idx_repos_by_label_and_level(
               label,
               level,
               GiteeContributorEnrich,
@@ -1455,7 +1455,7 @@ module Openapi
           end_date = params[:endDate]
           user_id = params[:ResponsiblePerson]
 
-          indexer, repo_urls = select_idx_repos_by_lablel_and_level(
+          indexer, repo_urls = select_idx_repos_by_label_and_level(
             label,
             level,
             GiteeIssueEnrich,
@@ -1603,7 +1603,7 @@ module Openapi
           require_dashboard_editor!(dashboard)
 
 
-          indexer, repo_urls = select_idx_repos_by_lablel_and_level(
+          indexer, repo_urls = select_idx_repos_by_label_and_level(
             label,
             'repo',
             GiteeIssueEnrich,
@@ -1657,7 +1657,7 @@ module Openapi
           begin_date = params[:beginDate]
           end_date = params[:endDate]
 
-          pull_indexer, repo_urls = select_idx_repos_by_lablel_and_level(
+          pull_indexer, repo_urls = select_idx_repos_by_label_and_level(
             label, level, GiteePullEnrich, GithubPullEnrich, GitcodePullEnrich
           )
 
@@ -1683,7 +1683,7 @@ module Openapi
             repo_urls, begin_date, end_date, filter_opts: unresponsive_filter
           )
 
-          commit_indexer, _ = select_idx_repos_by_lablel_and_level(
+          commit_indexer, _ = select_idx_repos_by_label_and_level(
             label, level, GiteeGitEnrich, GithubGitEnrich, GitcodeGitEnrich
           )
 
@@ -1746,7 +1746,7 @@ module Openapi
   #                       parsed_opts
   #                     end
   #
-  #         indexer, repo_urls = select_idx_repos_by_lablel_and_level(
+  #         indexer, repo_urls = select_idx_repos_by_label_and_level(
   #           label,
   #           level,
   #           GiteePullEnrich,
@@ -1782,7 +1782,7 @@ module Openapi
   #         user_logins = hits.map { |hit| hit.dig('_source', 'user_login') }.compact.uniq
   #
   #         # 获取贡献者信息
-  #         contrib_indexer, repo_urls = select_idx_repos_by_lablel_and_level(
+  #         contrib_indexer, repo_urls = select_idx_repos_by_label_and_level(
   #           label,
   #           level,
   #           GiteeContributorEnrich,
@@ -1901,7 +1901,7 @@ module Openapi
                         parsed_opts
                       end
 
-          indexer, repo_urls = select_idx_repos_by_lablel_and_level(
+          indexer, repo_urls = select_idx_repos_by_label_and_level(
             label,
             level,
             GiteePullEnrich,
@@ -1916,7 +1916,7 @@ module Openapi
 
           # ========== 如果有组织筛选，先获取贡献者信息 ==========
           if target_orgs.present?
-            contrib_indexer, _, _ = select_idx_repos_by_lablel_and_level(
+            contrib_indexer, _, _ = select_idx_repos_by_label_and_level(
               label,
               level,
               GiteeContributorEnrich,
@@ -1985,7 +1985,7 @@ module Openapi
           # 获取贡献者信息
           contributors_info = {}
           if user_logins.any?
-            contrib_indexer, _, _ = select_idx_repos_by_lablel_and_level(
+            contrib_indexer, _, _ = select_idx_repos_by_label_and_level(
               label,
               level,
               GiteeContributorEnrich,
@@ -2082,7 +2082,7 @@ module Openapi
         post :repository_list do
           label = ShortenedLabel.normalize_label(params[:label])
           level = params[:level]
-          indexer, repo_urls = select_idx_repos_by_lablel_and_level(
+          indexer, repo_urls = select_idx_repos_by_label_and_level(
             label,
             level,
             GiteePullEnrich,
@@ -2133,7 +2133,7 @@ module Openapi
           filter_opts = (params[:filterOpts] || []).map { |opt| OpenStruct.new(opt) }
           sort_opts = params[:sortOpts]
 
-          indexer, repo_urls = select_idx_repos_by_lablel_and_level(
+          indexer, repo_urls = select_idx_repos_by_label_and_level(
             label,
             level,
             GiteeIssueEnrich,
@@ -2334,7 +2334,7 @@ module Openapi
           filter_opts = (params[:filterOpts] || []).map { |opt| OpenStruct.new(opt) }
           sort_opts = params[:sortOpts]
 
-          indexer, repo_urls = select_idx_repos_by_lablel_and_level(
+          indexer, repo_urls = select_idx_repos_by_label_and_level(
             label,
             level,
             GiteePullEnrich,
@@ -2616,7 +2616,7 @@ module Openapi
           end_date = params[:endDate]
 
 
-          indexer, repo_urls, origin = select_idx_repos_by_lablel_and_level(
+          indexer, repo_urls, origin = select_idx_repos_by_label_and_level(
             label,
             level,
             GiteeContributorEnrich,

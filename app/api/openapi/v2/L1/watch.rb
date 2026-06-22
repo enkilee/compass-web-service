@@ -42,7 +42,7 @@ module Openapi
         post :watches do
           label, level, filter_opts, sort_opts, begin_date, end_date, page, size = extract_search_params!(params)
 
-          # indexer, repo_urls = select_idx_repos_by_lablel_and_level(label, level, GiteeIssueEnrich, GithubIssueEnrich)
+          # indexer, repo_urls = select_idx_repos_by_label_and_level(label, level, GiteeIssueEnrich, GithubIssueEnrich)
 
           status, message = Openapi::SharedParams::RepoChecker.check_repo!(label, level, current_user)
           return { message: message } unless status

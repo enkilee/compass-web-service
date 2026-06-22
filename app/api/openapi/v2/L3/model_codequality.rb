@@ -44,7 +44,7 @@ module Openapi
           indexer = CodequalityMetric
           # indexer = CodequalitySummary
           repo_urls = [label]
-          # indexer, repo_urls = select_idx_repos_by_lablel_and_level(label, level, GiteePullEnrich, CodequalityMetric)
+          # indexer, repo_urls = select_idx_repos_by_label_and_level(label, level, GiteePullEnrich, CodequalityMetric)
 
           resp = indexer.terms_by_metric_repo_urls(repo_urls, begin_date, end_date, per: size, page:, filter_opts:, sort_opts:)
 

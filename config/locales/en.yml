@@ -224,11 +224,11 @@ en:
     result: 'Calculation Result:'
   analysis:
     task:
-      submitted: task already sumbitted.
+      submitted: task already submitted.
       pending: The submission has entered the analysis service queue, and we will
         synchronize the analysis report address under this Pull Request after the
         analysis is completed.
-      unsubmit: failed to sumbit task, please retry.
+      unsubmit: failed to submit task, please retry.
     validation:
       pass: Thanks for the submission, we will analyze the project information after
         the Pull Request is merged. You can follow the progress of this Pull Request
@@ -465,7 +465,7 @@ en:
       processing_time: Processing Time(days)
       first_response_time: First Response Time(days)
       comments_count: Comments Count
-      tags: Lables
+      tags: Labels
       creator: Creator
       assignee: Assignee
       pr_title: PR title
@@ -478,10 +478,10 @@ en:
       merged: merged
       comments: comments
       show_organization: Show Organization
-      only_manager_participant: Only Manager and Articipant
+      only_manager_participant: Only Manager and Anticipant
       only_individual_organization: Only Organization and Individual
     only_the_latest_month: Users who do not have an Admin account for the project
-      in the last year (lssue assignment, PR merge, etc.) can only view the data for
+      in the last year (issue assignment, PR merge, etc.) can only view the data for
       the last month
     for_more_time_frames: 'For more time frames, please '
     statistics: In statistics
@@ -569,7 +569,7 @@ en:
       invalid_url_query: invalid url query
       something_went_wrong: 'Something went wrong:'
       try_to_refresh_this_page_or_feel_free_to_contact_u: Try to refresh this page
-        or feel free to contact us if the problem presists.
+        or feel free to contact us if the problem persists.
       try_again: Try again
       oops: "<s> Oops! </s> {{message}}"
     search:
@@ -809,7 +809,7 @@ en:
       pending: pending
       progress: progress
       success: success
-      unsumbit: unsumbit
+      unsubmit: unsubmit
       error: error
     threshold_range: Between 0 and {{value}}
     select_over_tips: Cannot exceed 10 items
@@ -1006,8 +1006,8 @@ en:
         (lines removed) per week in the past 90.
     issue:
       title: Issue
-      issue_first_reponse: Issue First Response
-      issue_first_reponse_desc: Average/Median first comments response (in days) for
+      issue_first_response: Issue First Response
+      issue_first_response_desc: Average/Median first comments response (in days) for
         new issues created in the last 90 days. This excludes bot responses, the creator's
         own comment, or an action assigned by the issue. If the issue has been unanswered,
         the first response time is not counted.
@@ -1117,7 +1117,7 @@ en:
     invalid_version: Invalid version
     invalid_invitation: Invalid invitation
     invitation_expired: Invitation expired
-    already_memeber: You are already a member
+    already_member: You are already a member
     datasets_too_large: 'The dataset exceeds the maximum length limit: %{limit}'
     metrics_too_large: 'The metrics exceeds the maximum length limit: %{limit}'
     not_found: No corresponding resources found
@@ -1147,7 +1147,7 @@ en:
       collaboration: The essence ofopen source is a typical example of human's pursuit
         of win-win collaboration.
       contributor: The key to collaboration is the ability of KOLs(technicaleaders).
-      software: Open source software products have continuous innovation abilityand
+      software: Open source software products have continuous innovation ability and
         use value.
     collaboration_development_index:
       title: Collaboration Development Index
@@ -1200,7 +1200,7 @@ en:
             on the continuity of the code contributions. But we should not draw any
             direct conclusions about projects that are low on this indicator, and
             further insights are needed.
-          notes: definitions of single repository and multiple repositories are differerent.
+          notes: definitions of single repository and multiple repositories are different.
         commit_pr_linked_ratio: Commit PR Linked Ratio
         commit_pr_linked_ratio_desc: Determine the percentage of new code commit link
           pull request in the last 90 days.
@@ -1252,7 +1252,7 @@ en:
             Ratio and Code Merge Ratio are one best practices we observe in opensource
             communities, but rather the only standards. We also see in some communities
             based on trust in some good, long-term contributors, these people are
-            granted the right to merge their own code direclty.
+            granted the right to merge their own code directly.
         lines_of_code_frequency: Lines of Code Frequency
         lines_of_code_frequency_desc: Determine the average number of lines touched
           (lines added plus lines removed) per week in the past 90 days.
@@ -1562,7 +1562,7 @@ en:
           weight: 12%
           threshold: '100'
           detail: ''
-        activity_regular_contribution_per_person: Regular Contribution Coun
+        activity_regular_contribution_per_person: Regular Contribution Count
         activity_regular_contribution_per_person_desc: The number of contributions
           per capita for contributors in the active regular in the last 90 days.
         activity_regular_contribution_per_person_more:
@@ -1821,7 +1821,7 @@ en:
       retry: failed to validate the repository, please try again.
     file:
       failed: 'failed to put the file, reason: %{reason}.'
-      submitted: alreadly submitted.
+      submitted: already submitted.
     pull:
       failed: 'failed to create a pull request, reason: %{reason}.'
     latest_sha:
@@ -1834,7 +1834,7 @@ en:
     too_many_repositories: too many repositories, please create a pull request manually.
     invalid_level: invalid resource type.
     duplicate: analysis report already exists, please visit follow url
-    welcome_collection: Welcome to submit Collection changes. After the PR is reviewd
+    welcome_collection: Welcome to submit Collection changes. After the PR is reviewed
       and merged, the new Collection information will be automatically updated and
       displayed in the next period.
     user:
@@ -1873,7 +1873,7 @@ en:
         notifications for analysis reports
       verified: Verified
       unverified_yet: Unverified yet,
-      email_sent: Verification email has been sent，
+      email_sent: Verification email has been sent,
       email_sent_later: Send again after {{sec}} seconds
       resend_verification_email: resend verification email
       language_preferences: Notification language preference
@@ -2014,9 +2014,9 @@ en:
     software_report_progress: Operation failed, report is being processed
     software_selection_audit_reject: Operation failed, hatch selection evaluation has been rejected
     software_selection_repo_audit_reject: Operation failed, the repo access control review has been rejected
-    software_report_trigger_failed: Report trigger failed，reason：%{reason}
+    software_report_trigger_failed: Report trigger failed, reason:%{reason}
     software_code_url_invalid: Code url invalid
-    callback_command_not_exist: callback command not exist： %{command}
+    callback_command_not_exist: callback command not exist:%{command}
     software_report_metric_not_clarified: software report metric are not clarified
   yaml:
     path:
@@ -2024,5 +2024,5 @@ en:
     diff_url:
       invalid: invalid diff url.
   vote:
-    vote_up_success: Vote up recorded successfully！
-    vote_down_success: Vote down recorded successfully！
+    vote_up_success: Vote up recorded successfully!
+    vote_down_success: Vote down recorded successfully!

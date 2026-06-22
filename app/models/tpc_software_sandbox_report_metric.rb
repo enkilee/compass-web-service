@@ -471,7 +471,7 @@ class TpcSoftwareSandboxReportMetric < ApplicationRecord
   end
 
   def self.get_compliance_dco(project_url,oh_commit_sha)
-    indexer, repo_urls =  select_idx_repos_by_lablel_and_level(project_url, "repo", GiteeGitEnrich, GithubGitEnrich, GitcodeGitEnrich)
+    indexer, repo_urls =  select_idx_repos_by_label_and_level(project_url, "repo", GiteeGitEnrich, GithubGitEnrich, GitcodeGitEnrich)
     if oh_commit_sha.present?
       commit_time_query = indexer.must(terms: { tag: repo_urls.map { |element| element + ".git" } })
                                  .must(match_phrase: { "hash": oh_commit_sha })
@@ -566,7 +566,7 @@ class TpcSoftwareSandboxReportMetric < ApplicationRecord
 
   def self.get_security_history_vulnerability(project_url)
     indexer, repo_urls =
-      select_idx_repos_by_lablel_and_level(project_url, "repo", GiteeRepoEnrich, GithubRepoEnrich, GitcodeRepoEnrich)
+      select_idx_repos_by_label_and_level(project_url, "repo", GiteeRepoEnrich, GithubRepoEnrich, GitcodeRepoEnrich)
     resp = indexer.must(terms: { tag: repo_urls })
                   .per(1)
                   .sort(grimoire_creation_date: "desc")
@@ -619,7 +619,7 @@ class TpcSoftwareSandboxReportMetric < ApplicationRecord
 
   def self.get_lifecycle_version_lifecycle(project_url)
     indexer, repo_urls =
-      select_idx_repos_by_lablel_and_level(project_url, "repo", GiteeRepoEnrich, GithubRepoEnrich, GitcodeRepoEnrich)
+      select_idx_repos_by_label_and_level(project_url, "repo", GiteeRepoEnrich, GithubRepoEnrich, GitcodeRepoEnrich)
     resp = indexer.must(terms: { tag: repo_urls })
                   .per(1)
                   .sort(grimoire_creation_date: "desc")

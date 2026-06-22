@@ -9,7 +9,7 @@ module Openapi
         exist_flag = true
         message = nil
         # 检查 项目是否存在
-        repo_indexer, project_urls = select_idx_repos_by_lablel_and_level(label, level, GiteeRepoEnrich, GithubRepoEnrich, GitcodeRepoEnrich)
+        repo_indexer, project_urls = select_idx_repos_by_label_and_level(label, level, GiteeRepoEnrich, GithubRepoEnrich, GitcodeRepoEnrich)
         exist = repo_indexer.check_exist(project_urls)
 
         unless exist
