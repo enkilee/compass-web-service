@@ -119,7 +119,7 @@ class ApplicationController < ActionController::Base
   end
 
   def panel
-    return redirect_to website_path unless user_signed_in?
+    return redirect_to root_path unless user_signed_in?
 
     render template: 'layouts/panel'
   end
