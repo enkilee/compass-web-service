@@ -506,13 +506,18 @@ module Openapi
 
               detail_field = settings['detail']
               raw = detail_field.present? ? doc[detail_field.to_s] : nil
-
+              meta_fields = %w[
+    _id _index _type _score _source _routing _parent _seq_no _primary_term
+    uuid metadata__enriched_on metadata__timestamp metadata__updated_on
+    metadata__gelk_version metadata__gelk_backend_name metadata__backend_name
+    metadata__backend_version metadata__version origin tag project
+  ].freeze
               {
                 date:   doc['grimoire_creation_date'],
                 value:  value,
                 extra:  extra,
                 detail: raw,
-                # test: doc.reject { |k, _| meta_fields.include?(k.to_s) }
+                test: doc.reject { |k, _| meta_fields.include?(k.to_s) }
               }
             end
 
@@ -1690,13 +1695,19 @@ module Openapi
           commit_repo_urls = repo_urls.map { |url| "#{url}.git" }
           commit_count = commit_indexer.count_by_repo_urls(commit_repo_urls, begin_date, end_date, filter: :grimoire_creation_date)
 
+          # 计算平均闭环时间
+          avg_time_to_close = pull_indexer.avg_time_to_close_days_by_repo_urls(
+            repo_urls, begin_date, end_date, filter_opts: closed_filter
+          )
+
           {
             new_pr_count: new_pr_count, # 新建 PR 数量
             pr_resolution_percentage: "#{resolution_percentage}%", # PR 解决百分比
             unresponsive_pr_count: unresponsive_pr_count, # 未响应 PR 数量
             commit_count: commit_count, # 代码提交数量
-
+            avg_time_to_close_days: avg_time_to_close.round(2) # 平均闭环时间（天）
           }
+
         end
 
         desc '获取 PR (Pull Request) 详情列表',
